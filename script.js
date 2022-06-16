@@ -42,18 +42,18 @@ function addToHTML(answers) {
 
 
 
-// const ourFirstPromise = new Promise((resolve) => {
-//     setTimeout(() => {
-//         resolve("resolved");
-//     }, 1000)
-// })
+const ourFirstPromise = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve("resolved");
+    }, 1000)
+})
 
 
-// ourFirstPromise
-//     .then(value => value + " and again")
-//     .then(valueToo => valueToo + " and again")
-//     .then(valueFinal => console.log(valueFinal))
-//     .catch(err => console.log(err));
+ourFirstPromise
+    .then(value => value + " and again")
+    .then(valueToo => valueToo + " and again")
+    .then(valueFinal => console.log(valueFinal))
+    .catch(err => console.log(err));
 
 
 
@@ -61,51 +61,51 @@ function addToHTML(answers) {
     
 
 
-// const ourSecondPromise = new Promise((resolve) => {
-//     resolve(promiseResponse = {
-//         data: {
-//             stocks: [
-//                 {
-//                     name: "AAPL",
-//                     amt: 3
-//                 },
-//                 {
-//                     name: "AIP",
-//                     amt: 50
-//                 },
-//                 {
-//                     name: "CCF",
-//                     amt: 100
-//                 }
-//             ]
-//         }
-//     });
-// });
+const ourSecondPromise = new Promise((resolve) => {
+    resolve(promiseResponse = {
+        data: {
+            stocks: [
+                {
+                    name: "AAPL",
+                    amt: 3
+                },
+                {
+                    name: "AIP",
+                    amt: 50
+                },
+                {
+                    name: "CCF",
+                    amt: 100
+                }
+            ]
+        }
+    });
+});
 
 
 
-// function positionPrompt(data) {
-//     inquirer.prompt({
-//         type: "input",
-//         name: "userInput",
-//         message: "Please enter the ticker and amount, separated by a comma and space (AAPL, 30"
-//     }).then(res => {
-//         userInputArr = res.userInput.split(", ");
-//         data.addToPosition(userInputArr[0], parseInt(userInputArr[1]));
-//         console.log(data);
-//         return data
-//     }).then(data => {
-//         inquirer.prompt({
-//             type: "confirm",
-//             name: "addAgain",
-//             message: "Would you like to add again?"
-//         }).then(userInput => {
-//             if (userInput.addAgain) {
-//                 positionPrompt(data);
-//             }
-//         })
-//     })
-// }
+function positionPrompt(data) {
+    inquirer.prompt({
+        type: "input",
+        name: "userInput",
+        message: "Please enter the ticker and amount, separated by a comma and space (AAPL, 30"
+    }).then(res => {
+        userInputArr = res.userInput.split(", ");
+        data.addToPosition(userInputArr[0], parseInt(userInputArr[1]));
+        console.log(data);
+        return data
+    }).then(data => {
+        inquirer.prompt({
+            type: "confirm",
+            name: "addAgain",
+            message: "Would you like to add again?"
+        }).then(userInput => {
+            if (userInput.addAgain) {
+                positionPrompt(data);
+            }
+        })
+    })
+}
 
 
 ourSecondPromise
@@ -128,15 +128,15 @@ ourSecondPromise
     }
     )
     .then(data => {
-        inquirer.prompt({
-            type: "input",
-            name: "userInput",
-            message: "Please enter the ticker and amount, separated by a comma and space (AAPL, 30"
-        }).then(res => {
-            userInputArr = res.userInput.split(", ");
-            data.addToPosition(userInputArr[0], parseInt(userInputArr[1]));
-            console.log(data);
-        })
+        // inquirer.prompt({
+        //     type: "input",
+        //     name: "userInput",
+        //     message: "Please enter the ticker and amount, separated by a comma and space (AAPL, 30"
+        // }).then(res => {
+        //     userInputArr = res.userInput.split(", ");
+        //     data.addToPosition(userInputArr[0], parseInt(userInputArr[1]));
+        //     console.log(data);
+        // })
         positionPrompt(data);
     })
     .catch(error => console.error(error));
